@@ -1,0 +1,18 @@
+[Server]
+Mode = "debug"
+Addr = "0.0.0.0:8080"
+ReadTimeout = 60
+WriteTimeout = 60
+
+[Database]
+Dialect = "mysql"
+User = "root"
+Password = "root"
+Host = "localhost:3306"
+Name = "forum"
+Protocol = "tcp"
+Charset = "utf8"
+ParseTime = "True"
+Loc = "Local"
+MaxIdleConns = 10
+MaxOpenConns = 100
