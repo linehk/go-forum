@@ -35,7 +35,7 @@ type database struct {
 var Cfg config
 
 func init() {
-	if _, err := toml.DecodeFile("config/config.toml", &Cfg); err != nil {
+	if _, err := toml.DecodeFile("../config.toml", &Cfg); err != nil {
 		if _, err := toml.DecodeFile("./config.toml", &Cfg); err != nil {
 			log.Fatal(err)
 		}
