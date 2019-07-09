@@ -43,7 +43,8 @@ func Setup() *http.ServeMux {
 
 // get
 func index(w http.ResponseWriter, r *http.Request) {
-	threads, err := model.Thread{}.ReadAll()
+	t := &model.Thread{}
+	threads, err := t.ReadAll()
 	if err != nil {
 		msg(w, r, "read threads err: ", err)
 	}
