@@ -24,17 +24,17 @@ func (t *Thread) Create() error {
 }
 
 func (t *Thread) ReadByID() error {
-	return db.QueryRow("SELECT created_at, uuid, subject, user_id FROM threads WHERE id = ?").
+	return db.QueryRow("SELECT created_at, uuid, subject, user_id FROM threads WHERE id = ?", t.ID).
 		Scan(&t.CreatedAt, &t.UUID, &t.Subject, &t.UserID)
 }
 
 func (t *Thread) ReadByUUID() error {
-	return db.QueryRow("SELECT id, created_at, subject, user_id FROM threads WHERE uuid = ?").
+	return db.QueryRow("SELECT id, created_at, subject, user_id FROM threads WHERE uuid = ?", t.UUID).
 		Scan(&t.ID, &t.CreatedAt, &t.Subject, &t.UserID)
 }
 
 func (t *Thread) ReadBySubject() error {
-	return db.QueryRow("SELECT id, created_at, uuid, user_id FROM threads WHERE user_id = ?").
+	return db.QueryRow("SELECT id, created_at, uuid, user_id FROM threads WHERE user_id = ?", t.UserID).
 		Scan(&t.ID, &t.CreatedAt, &t.UUID, &t.UserID)
 }
 
