@@ -8,7 +8,8 @@ type User struct {
 }
 
 func (u *User) Create() error {
-	_, err := db.Exec("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", u.Name, u.Email, hash(u.Password))
+	_, err := db.Exec("INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+		u.Name, u.Email, hash(u.Password))
 	if err != nil {
 		return err
 	}
