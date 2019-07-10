@@ -1,0 +1,10 @@
+{{ define "content" }}
+
+<form class="form-signin center" role="form" action="/auth" method="post">
+  <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
+  <input type="password" name="password" class="form-control" placeholder="Password" required>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+  <a class="lead pull-right" href="/signup">注册</a>
+</form>
+
+{{ end }}

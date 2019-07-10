@@ -1,0 +1,20 @@
+{{ define "content" }}
+
+<p class="lead"><a href="/threads/create">创建一个新主题</a> 或者选择下面中的一个！</p>
+
+  共有 {{ len . }} 个主题。
+
+  {{ range . }}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="lead"><i class="fa fa-comment-o"></i> {{ .Subject }}</span>
+      </div>
+      <div class="panel-body">
+        <div class="pull-right">
+          <a href="/threads/read?uuid={{ .UUID }}">更多</a>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+
+{{ end }}
