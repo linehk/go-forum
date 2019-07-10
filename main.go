@@ -15,7 +15,7 @@ func main() {
 	server := &http.Server{
 		Addr:           sc.Addr,
 		Handler:        controller.Setup(),
-		ReadTimeout:    time.Duration(sc.ReadTimeout * int(time.Second)),
+		ReadTimeout:    time.Duration(sc.ReadTimeout * int(time.Second)), // 转换成时间数据结构
 		WriteTimeout:   time.Duration(sc.WriteTimeout * int(time.Second)),
 		MaxHeaderBytes: 1 << 20,
 	}

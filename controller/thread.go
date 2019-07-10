@@ -6,7 +6,7 @@ import (
 	"github.com/linehk/go-forum/model"
 )
 
-// get
+// threads 渲染新建主题时的页面。
 func threads(w http.ResponseWriter, r *http.Request) {
 	if logged(w, r) {
 		html(w, r, nil, "layout", "private.navbar", "new.thread")
@@ -15,7 +15,7 @@ func threads(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// post
+// createThread 根据表单来建立主题。
 func createThread(w http.ResponseWriter, r *http.Request) {
 	s, err := session(w, r)
 	if err != nil {
@@ -24,10 +24,12 @@ func createThread(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		msg(w, r, "parse form err: ", err)
 	}
+	// 读取 session 对应的用户。
 	u := &model.User{ID: s.UserID}
 	if err := u.ReadByID(); err != nil {
 		msg(w, r, "read user err: ", err)
 	}
+	// 为该用户建立主题。
 	t := &model.Thread{Subject: r.PostFormValue("subject"), UserID: u.ID}
 	if err := t.Create(); err != nil {
 		msg(w, r, "create thread err: ", err)
@@ -35,12 +37,13 @@ func createThread(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusFound)
 }
 
+// 临时用于传入渲染的数据
 type ReadView struct {
 	Thread model.Thread
 	Posts  []model.Post
 }
 
-// get
+// readThread 渲染 /threads/read?uuid= 页面。
 func readThread(w http.ResponseWriter, r *http.Request) {
 	uuid := r.URL.Query().Get("uuid")
 	data := &ReadView{Thread: model.Thread{UUID: uuid}}
@@ -60,7 +63,7 @@ func readThread(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// post
+// createPost 用于建立主题对应的帖子。
 func createPost(w http.ResponseWriter, r *http.Request) {
 	s, err := session(w, r)
 	if err != nil {

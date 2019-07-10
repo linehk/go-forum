@@ -34,8 +34,11 @@ type database struct {
 
 var Cfg config
 
+// init 初始化 Cfg 全局变量。
 func init() {
+	// ../config.toml 用于各个子目录。
 	if _, err := toml.DecodeFile("../config.toml", &Cfg); err != nil {
+		// ./config.toml 用于 main.go。
 		if _, err := toml.DecodeFile("./config.toml", &Cfg); err != nil {
 			log.Fatal(err)
 		}
