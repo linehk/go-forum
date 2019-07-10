@@ -37,14 +37,12 @@ func verify(password, hash string) bool {
 
 // get
 func signup(w http.ResponseWriter, r *http.Request) {
-	html(w, r, nil, "login.layout", "public.navbar", "signup")
+	html(w, r, nil, "layout", "public.navbar", "signup")
 }
 
 // get
 func login(w http.ResponseWriter, r *http.Request) {
-	if err := parse("login.layout", "public.navbar", "login").Execute(w, nil); err != nil {
-		msg(w, r, "parse err: ", err)
-	}
+	html(w, r, nil, "layout", "public.navbar", "login")
 }
 
 // get

@@ -35,17 +35,28 @@ func createThread(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusFound)
 }
 
+type ReadView struct {
+	Thread model.Thread
+	Posts  []model.Post
+}
+
 // get
 func readThread(w http.ResponseWriter, r *http.Request) {
 	uuid := r.URL.Query().Get("uuid")
-	t := &model.Thread{UUID: uuid}
-	if err := t.ReadByUUID(); err != nil {
+	data := &ReadView{Thread: model.Thread{UUID: uuid}}
+	if err := data.Thread.ReadByUUID(); err != nil {
 		msg(w, r, "read thread err: ", err)
 	}
+	p := &model.Post{ThreadID: data.Thread.ID}
+	posts, err := p.ReadByThreadID()
+	if err != nil {
+		msg(w, r, "read by thread_id err: ", err)
+	}
+	data.Posts = posts
 	if logged(w, r) {
-		html(w, r, t, "layout", "private.navbar", "private.thread")
+		html(w, r, data, "layout", "private.navbar", "private.thread")
 	} else {
-		html(w, r, t, "layout", "public.navbar", "public.thread")
+		html(w, r, data, "layout", "public.navbar", "public.thread")
 	}
 }
 
@@ -63,7 +74,6 @@ func createPost(w http.ResponseWriter, r *http.Request) {
 		msg(w, r, "read thread err: ", err)
 	}
 	p := &model.Post{
-		Title:    r.PostFormValue("title"),
 		Content:  r.PostFormValue("content"),
 		UserID:   s.UserID,
 		ThreadID: t.ID,

@@ -69,14 +69,6 @@ func msg(w http.ResponseWriter, r *http.Request, msg string, err error) {
 	http.Redirect(w, r, "/err?msg="+msg+err.Error(), http.StatusFound)
 }
 
-func parse(names ...string) *template.Template {
-	var files []string
-	for _, f := range names {
-		files = append(files, fmt.Sprintf("view/%s.html", f))
-	}
-	return template.Must(template.New("layout").ParseFiles(files...))
-}
-
 func html(w http.ResponseWriter, r *http.Request, data interface{}, names ...string) {
 	var files []string
 	for _, f := range names {
