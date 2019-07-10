@@ -10,10 +10,7 @@ import (
 
 func logged(w http.ResponseWriter, r *http.Request) bool {
 	_, err := session(w, r)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 func session(w http.ResponseWriter, r *http.Request) (*model.Session, error) {
