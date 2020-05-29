@@ -37,7 +37,3 @@ And, run it：
 ## Usages
 
 Visit `http://localhost:8080/`.
-
-## License
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flinehk%2Fgo-forum.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flinehk%2Fgo-forum?ref=badge_large)
