@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/linehk/go-forum.svg?branch=master)](https://travis-ci.org/linehk/go-forum)
 [![codecov](https://codecov.io/gh/linehk/go-forum/branch/master/graph/badge.svg)](https://codecov.io/gh/linehk/go-forum)
 [![Go Report Card](https://goreportcard.com/badge/github.com/linehk/go-forum)](https://goreportcard.com/report/github.com/linehk/go-forum)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flinehk%2Fgo-forum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flinehk%2Fgo-forum?ref=badge_shield)
 
 [English](./README-en.md "English") | 简体中文
 
