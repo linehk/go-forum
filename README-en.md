@@ -37,3 +37,13 @@ And, run it：
 ## Usages
 
 Visit `http://localhost:8080/`.
+
+## Contributing
+
+If you feel that there is something to improve this project, please feel free to launch Pull Request.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT License](./LICENSE "MIT License")
