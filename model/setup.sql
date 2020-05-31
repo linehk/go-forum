@@ -2,18 +2,20 @@ CREATE DATABASE IF NOT EXISTS `forum` DEFAULT CHARACTER SET utf8 COLLATE utf8_ge
 
 USE `forum`;
 
-DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `sessions`;
-DROP TABLE IF EXISTS `threads`;
+DROP TABLE IF EXISTS `hints`;
 DROP TABLE IF EXISTS `posts`;
+DROP TABLE IF EXISTS `threads`;
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `admin` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -25,6 +27,16 @@ CREATE TABLE `sessions` (
   UNIQUE KEY `uuid` (`uuid`),
   KEY `fk_sessions_user_id` (`user_id`),
   CONSTRAINT `fk_sessions_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `hints` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_sessions_user_id` (`user_id`),
+  CONSTRAINT `fk_hints_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `threads` (

@@ -1,0 +1,28 @@
+{{ define "content" }}
+
+  <h2>阅读主题</h2>
+
+  <a href="/search">搜索</a>
+  <a href="/logout_action">注销</a>
+  <a href="/set_admin">设置管理员</a>
+  <a href="/threads/create">创建主题</a>
+  <hr>
+
+  <h3>{{ .ThreadSubject }}</h3>
+
+  <p>由{{ .Username }}于{{ .ThreadCreatedAt }}建立，共有{{ .PostCount }}个帖子。</p>
+
+  {{ range .Posts }}
+      <p>{{ .Content }}</p>
+  {{end}}
+
+  <form action="/posts/create_action" method="post">
+
+      <label for="content">回复内容:</label><br>
+      <input type="text" id="content" name="content" autofocus required><br>
+
+      <input type="hidden" name="uuid" value="{{ .ThreadUUID }}"><br>
+      <input type="submit" value="回复"><br>
+
+  </form>
+{{ end }}

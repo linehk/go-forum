@@ -1,8 +1,8 @@
 {{ define "content" }}
 
-  <h2>登录</h2>
+  <h2>重置密码</h2>
 
-  <form action="/login_action" method="post">
+  <form action="/reset_action" method="post">
 
     <label for="email">邮箱:</label>
     <input type="email" id="email" name="email" required autofocus><br>
@@ -21,13 +21,10 @@
     <label for="answer">答案:</label>
     <input type="text" id="answer" name="answer"><br>
 
-    <input type="checkbox" id="admin" name="admin" value="yes">
-    <label for="admin">管理员</label><br>
+    <label for="newPassword">新的密码：</label>
+    <input type="password" id="newPassword" name="newPassword" required><br>
 
-    <input type="submit" value="登录"><br>
-
-    <a href="/signup">立即注册</a>
-    <a href="/reset">重置密码</a>
+    <input type="submit" value="提交"><br>
 
   </form>
 

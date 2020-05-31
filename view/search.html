@@ -1,0 +1,27 @@
+{{ define "content" }}
+
+  <h2>搜索</h2>
+
+  <form action="/fuzzy_search_action" id="fuzzySearch" name="fuzzySearch" method="post">
+    <h3>模糊搜索：</h3>
+    <label for="fuzzyString">名字:</label>
+    <input type="search" id="fuzzyString" name="fuzzyString" required autofocus>
+    <input type="submit" value="提交">
+  </form>
+
+  <form action="/exact_search_action" id="exactSearch" name="exactSearch" method="post">
+    <h3>精确搜索：</h3>
+    <p>使用以下条件来搜索联系人：</p>
+    <label for="firstName">名字:</label>
+    <input type="text" id="firstName" name="firstName"><br>
+
+    <label for="lastName">姓氏:</label>
+    <input type="text" id="lastName" name="lastName"><br>
+
+    <label for="allWordsBelow">以下所有字词：</label>
+    <input type="text" id="allWordsBelow" name="allWordsBelow"><br>
+
+    <input type="submit" value="提交"><br>
+  </form>
+
+{{ end }}

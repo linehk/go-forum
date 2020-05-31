@@ -1,10 +1,39 @@
 {{ define "content" }}
 
-<form class="form-signin" role="form" action="/users" method="post">
-  <input id="name" type="text" name="name" class="form-control" placeholder="Name" required autofocus>
-  <input id="email" type="email" name="email" class="form-control" placeholder="Email" required>
-  <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-</form>
+  <h2>注册</h2>
+
+  <form action="/signup_action" method="post">
+
+    <label for="email">邮箱:</label>
+    <input type="email" id="email" name="email" required autofocus><br>
+
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <label for="confirmPassword">确认密码:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+    <label for="hint">安全提问：</label>
+    <select id="hint" name="hint">
+      <option value="ignore">未设置可忽略</option>
+      <option value="1">您最喜欢的游戏是？</option>
+      <option value="2">您其中一位老师的名字是？</option>
+      <option value="3">您个人计算机的型号是？</option>
+    </select><br>
+
+    <label for="answer">答案:</label>
+    <input type="text" id="answer" name="answer"><br>
+
+    <input type="checkbox" id="admin" name="admin" value="yes">
+    <label for="admin">管理员</label><br>
+
+    <input type="submit" value="注册"><br>
+
+    <a href="/login">已有账号？现在登录</a>
+
+  </form>
 
 {{ end }}

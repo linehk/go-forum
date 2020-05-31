@@ -1,0 +1,14 @@
+{{ define "content" }}
+
+  <h2>创建主题</h2>
+
+  <form action="/threads/create_action" method="post">
+
+    <label for="subject">主题名:</label>
+    <input type="text" id="subject" name="subject" required autofocus><br>
+
+    <input type="submit" value="提交"><br>
+
+  </form>
+
+{{ end }}

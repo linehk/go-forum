@@ -1,0 +1,17 @@
+{{ define "content" }}
+
+  <h2>设置管理员</h2>
+
+  <form action="/set_admin_action" method="post">
+
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required autofocus><br>
+
+    <label for="confirmUsername">确认用户名:</label>
+    <input type="text" id="confirmUsername" name="confirmUsername" required><br>
+
+    <input type="submit" value="提交"><br>
+
+  </form>
+
+{{ end }}
