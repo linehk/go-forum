@@ -1,6 +1,5 @@
 # go-forum
 
-[![Build Status](https://travis-ci.org/linehk/go-forum.svg?branch=master)](https://travis-ci.org/linehk/go-forum)
 [![codecov](https://codecov.io/gh/linehk/go-forum/branch/master/graph/badge.svg)](https://codecov.io/gh/linehk/go-forum)
 [![Go Report Card](https://goreportcard.com/badge/github.com/linehk/go-forum)](https://goreportcard.com/report/github.com/linehk/go-forum)
 
