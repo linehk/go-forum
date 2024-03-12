@@ -1,7 +1,8 @@
 # go-forum
 
-[![codecov](https://codecov.io/gh/linehk/go-forum/branch/master/graph/badge.svg)](https://codecov.io/gh/linehk/go-forum)
-[![Go Report Card](https://goreportcard.com/badge/github.com/linehk/go-forum)](https://goreportcard.com/report/github.com/linehk/go-forum)
+[![build](https://github.com/linehk/go-forum/actions/workflows/build.yml/badge.svg "build")](https://github.com/linehk/go-forum/actions)
+[![codecov](https://codecov.io/gh/linehk/go-forum/graph/badge.svg "codecov")](https://codecov.io/gh/linehk/go-forum)
+[![go report](https://goreportcard.com/badge/github.com/linehk/go-forum "go report")](https://goreportcard.com/report/github.com/linehk/go-forum)
 
 English | [简体中文](./README-zh.md "简体中文")
 
